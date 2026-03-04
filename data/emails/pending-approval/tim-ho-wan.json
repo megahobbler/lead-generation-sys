@@ -1,0 +1,19 @@
+{
+  "lead_name": "Tim Ho Wan",
+  "business_type": "Restaurant",
+  "lead_score": 100,
+  "template_used": "C",
+  "subject_line": "Tim Ho Wan - AI that sounds human?",
+  "email_body": "Hi there,\n\nHonest question: have you tried AI phone systems before and hated how robotic they sound?\n\nWe built something different. Our AI sounds like an actual person - we can even clone your best staff member's voice.\n\nCurrently piloting with Singapore and Jakarta restaurants across your 5 locations who were skeptical but became believers after hearing it.\n\nWant to try it free for 2 weeks? Zero setup time.\nhttps://calendly.com/sean-tan-swoplabs/30min\n\nBest,\nSean Tan\nSWOPLABS.AI\nlinkedin.com/in/sean-tan-961903247\n+65 83289068\nsean.tan@swoplabs.app\n\nBuilt by SMU & Columbia grads. Singapore-made for Singapore restaurants.\n\nReply 'unsubscribe' to opt out.",
+  "email_address": "info@timhowan.com",
+  "personalization_elements": [
+    "Business name: Tim Ho Wan",
+    "Neighborhood: Orchard",
+    "Chain: Yes (5 locations)"
+  ],
+  "approval_required": true,
+  "created_date": "2026-03-04",
+  "send_status": "pending_approval",
+  "assigned_to_agent_3": false,
+  "word_count": 93
+}

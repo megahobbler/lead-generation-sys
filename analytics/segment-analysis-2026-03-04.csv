@@ -1,0 +1,9 @@
+Segment,Category,Emails_Sent,Open_Rate,Reply_Rate,Positive_Rate
+Business_Type,Restaurant,3,33.3%,0.0%,0.0%
+Business_Type,Physiotherapy,1,0.0%,0.0%,0.0%
+Business_Type,Aesthetics,1,0.0%,0.0%,0.0%
+Business_Type,Specialist,1,0%,0%,0%
+Lead_Score,High (75-100),0,0%,0%,0%
+Lead_Score,Medium (50-74),0,0%,0%,0%
+Lead_Score,Low (30-49),6,20.0%,0.0%,0.0%
+Day,Wednesday,6,20.0%,0.0%,0.0%

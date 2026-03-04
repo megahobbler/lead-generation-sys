@@ -1,0 +1,25 @@
+Business_Name,Business_Type,Address,Neighborhood,Phone,Website,Email_Found,Email_Address,Decision_Maker_Name,Decision_Maker_Title,Google_Rating,Review_Count,Is_Chain,Number_of_Locations,Lead_Score,Has_Website,Has_Online_Booking,Best_Contact_Method,Research_Notes,Searchable_Online,Date_Added
+Wingstop Singapore,Cafe,313 Orchard Rd,Orchard,+65 6509 9800,https://wingstop.com.sg,Y,hello@wingstop.com.sg,Not Found,,4.1,1203,Y,6,100,Y,Y,Email,6 location(s) in SG,Y,2026-03-04
+Parkway Shenton,GP_Clinic,1 Harbourfront Walk,Harbourfront,+65 6838 3000,https://parkwayshenton.com.sg,Y,info@parkwayshenton.com.sg,Not Found,,4.3,2109,Y,45,100,Y,Y,Email,45 location(s) in SG,Y,2026-03-04
+Pacific Healthcare,Physiotherapy,1 Jurong West Central 2,Jurong,+65 6563 8833,https://pachealthcare.com,Y,contact@pachealthcare.com,Not Found,,4.1,2341,Y,25,100,Y,Y,Email,25 location(s) in SG,Y,2026-03-04
+Nando's Singapore,Restaurant,"3 Gateway Dr, #B1-27",Jurong,+65 6694 3388,https://nandos.com.sg,Y,enquiry@nandos.com.sg,Not Found,,4.0,1876,Y,9,100,Y,Y,Email,9 location(s) in SG,Y,2026-03-04
+Family Medicine Clinic,Aesthetics,134 Jurong Gateway Rd,Jurong,+65 6561 8801,https://fmc.sg,Y,enquiry@fmc.sg,Not Found,,4.0,432,N,1,40,Y,N,Email,Single location,Y,2026-03-04
+TP Dental Surgeons,GP_Clinic,"290 Orchard Rd, #07-01",Orchard,+65 6737 9709,https://tpdental.com.sg,Y,hello@tpdental.com.sg,Not Found,,4.6,987,Y,8,100,Y,Y,Email,8 location(s) in SG,Y,2026-03-04
+Tim Ho Wan,Restaurant,"68 Orchard Rd, #B1-59A",Orchard,+65 6262 6607,https://timhowan.com,Y,info@timhowan.com,Not Found,,4.3,6745,Y,5,100,Y,Y,Email,5 location(s) in SG,Y,2026-03-04
+Hawker Chan,Restaurant,78 Smith St,Chinatown,+65 9732 9989,https://liaofanhawkerchan.com,Y,hello@liaofanhawkerchan.com,Not Found,,4.4,8932,Y,3,95,Y,Y,Email,3 location(s) in SG,Y,2026-03-04
+Acumed Medical,Dental,3 Mount Elizabeth,Orchard,+65 6735 8488,https://acumed.com.sg,Y,enquiry@acumed.com.sg,Not Found,,4.4,1234,Y,12,100,Y,Y,Email,12 location(s) in SG,Y,2026-03-04
+The Kitchen @ Bacchanalia,Restaurant,39 Hong Kong St,Clarke Quay,+65 9179 4552,https://bacchanalia.sg,Y,contact@bacchanalia.sg,Not Found,,4.7,891,N,1,45,Y,N,Email,Single location,Y,2026-03-04
+Singapore Medical Group,Aesthetics,"290 Orchard Rd, #14-03",Orchard,+65 6734 8900,https://smg.sg,Y,enquiry@smg.sg,Not Found,,4.5,3102,Y,30,100,Y,Y,Email,30 location(s) in SG,Y,2026-03-04
+Northeast Medical Group,Aesthetics,828 Upper Serangoon Rd,Hougang,+65 6280 1688,https://nemg.com.sg,Y,enquiry@nemg.com.sg,Not Found,,4.2,1567,Y,8,100,Y,Y,Email,8 location(s) in SG,Y,2026-03-04
+Raffles Medical Group,Aesthetics,585 North Bridge Rd,City Hall,+65 6311 1111,https://rafflesmedical.com,Y,info@rafflesmedical.com,Not Found,,4.5,3421,Y,100,100,Y,Y,Email,100 location(s) in SG,Y,2026-03-04
+Din Tai Fung,Restaurant,"290 Orchard Rd, #B3-01",Orchard,+65 6836 8336,https://dintaifung.com.sg,Y,contact@dintaifung.com.sg,Not Found,,4.6,12043,Y,12,100,Y,Y,Email,12 location(s) in SG,Y,2026-03-04
+Violet Oon,Restaurant,881 Bukit Timah Rd,Holland Village,+65 9834 9935,https://violetoon.com,Y,info@violetoon.com,Not Found,,4.5,2341,Y,2,90,Y,Y,Email,2 location(s) in SG,Y,2026-03-04
+Shake Shack,Restaurant,"2 Bayfront Ave, #B2-01",Marina Bay,+65 6688 7854,https://shakeshack.com,Y,info@shakeshack.com,Not Found,,4.2,3102,Y,4,95,Y,Y,Email,4 location(s) in SG,Y,2026-03-04
+Dr. Tan & Partners,Physiotherapy,545 Orchard Rd,Orchard,+65 6835 5355,https://dtap.com.sg,Y,contact@dtap.com.sg,Not Found,,4.4,1876,Y,20,100,Y,Y,Email,20 location(s) in SG,Y,2026-03-04
+Imperial Treasure,Cafe,9 Raffles Blvd,Marina Square,+65 6736 2118,https://imperialtreasure.com,Y,enquiry@imperialtreasure.com,Not Found,,4.5,4201,Y,7,100,Y,Y,Email,7 location(s) in SG,Y,2026-03-04
+Paradise Dynasty,Restaurant,"290 Orchard Rd, #B1-03",Orchard,+65 6737 6858,https://paradisegp.com,Y,contact@paradisegp.com,Not Found,,4.3,5621,Y,8,100,Y,Y,Email,8 location(s) in SG,Y,2026-03-04
+The Dermatology Practice,Physiotherapy,"290 Orchard Rd, #09-03",Orchard,+65 6235 9388,https://dermatologypractice.com.sg,Y,hello@dermatologypractice.com.sg,Not Found,,4.7,654,N,1,45,Y,N,Email,Single location,Y,2026-03-04
+Lau Pa Sat,Restaurant,18 Raffles Quay,CBD,+65 6220 2138,https://laupasat.sg,Y,info@laupasat.sg,Not Found,,4.0,9234,N,1,45,Y,N,Email,Single location,Y,2026-03-04
+Burnt Ends,Restaurant,20 Teck Lim Rd,Chinatown,+65 6224 3933,https://burntends.com.sg,Y,hello@burntends.com.sg,Not Found,,4.6,2847,N,1,45,Y,N,Email,Single location,Y,2026-03-04
+Orchard Clinic,Specialist,501 Orchard Rd,Orchard,+65 6735 6677,https://orchardclinic.com.sg,Y,info@orchardclinic.com.sg,Not Found,,4.3,876,N,1,45,Y,N,Email,Single location,Y,2026-03-04
+Q&M Dental Group,TCM,277 Orchard Rd,Orchard,+65 6735 8333,https://qandm.com.sg,Y,info@qandm.com.sg,Not Found,,4.2,4532,Y,55,100,Y,Y,Email,55 location(s) in SG,Y,2026-03-04

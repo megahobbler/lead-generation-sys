@@ -1,0 +1,7 @@
+Email_ID,Lead_Name,Business_Type,Lead_Score,Template_Used,Subject_Line,Sent_Date,Sent_Time,Delivered,Opened,Open_Time,Link_Clicked,Click_Time,Reply_Received,Reply_Time,Reply_Type,Meeting_Booked,Follow_Up_Status,Final_Status
+msg_20260304132229_000,Burnt Ends,Restaurant,45,B,Burnt Ends - see how we helped similar restaurants,2026-03-04,13:22:29,Y,N,,N,,N,,,N,None,Active
+msg_20260304132229_001,Lau Pa Sat,Restaurant,45,A,Lau Pa Sat - $27K lost to missed calls?,2026-03-04,13:22:29,Y,N,,N,,N,,,N,None,Active
+msg_20260304132229_002,Orchard Clinic,Specialist,45,C,Orchard Clinic - AI that sounds human?,2026-03-04,13:22:29,N,N,,N,,N,,,N,None,Active
+msg_20260304132229_003,The Dermatology Practice,Physiotherapy,45,D,"The Dermatology Practice - try it free, zero obligation",2026-03-04,13:22:29,Y,N,,N,,N,,,N,None,Active
+msg_20260304132229_004,The Kitchen @ Bacchanalia,Restaurant,45,B,The Kitchen @ Bacchanalia - see how we helped similar restaurants,2026-03-04,13:22:29,Y,Y,2026-03-06 03:22,Y,2026-03-04 14:41,N,,,N,None,Active
+msg_20260304132229_005,Family Medicine Clinic,Aesthetics,40,A,Family Medicine Clinic - $27K lost to missed calls?,2026-03-04,13:22:29,Y,N,,N,,N,,,N,None,Active

@@ -1,0 +1,5 @@
+Template,Name,Sample_Size,Open_Rate,Click_Rate,Reply_Rate,Positive_Rate,Meeting_Rate,Confidence
+A,Problem-Focused,2,0.0%,0.0%,0.0%,0.0%,0.0%,Insufficient Data
+B,Proof-Focused,2,50.0%,50.0%,0.0%,0.0%,0.0%,Insufficient Data
+C,Voice Quality,1,0%,0%,0%,0%,0%,Insufficient Data
+D,Risk-Free,1,0.0%,0.0%,0.0%,0.0%,0.0%,Insufficient Data

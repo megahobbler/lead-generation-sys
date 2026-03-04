@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWOPLABS Lead Generation Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .status-green {
+            background: #10b981;
+            color: #fff;
+        }
+        .status-yellow {
+            background: #f59e0b;
+            color: #fff;
+        }
+        .status-red {
+            background: #ef4444;
+            color: #fff;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #334155;
+        }
+        .card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f1f5f9;
+        }
+        .metric {
+            margin-bottom: 16px;
+        }
+        .metric-label {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+        .metric-change {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .metric-change.positive {
+            color: #10b981;
+        }
+        .metric-change.negative {
+            color: #ef4444;
+        }
+        .agent-status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #0f172a;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .agent-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .agent-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .indicator-green {
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        .indicator-yellow {
+            background: #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        .indicator-red {
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        .btn-secondary {
+            background: #475569;
+        }
+        .btn-secondary:hover {
+            background: #334155;
+        }
+        .alert {
+            background: #7c2d12;
+            border-left: 4px solid #ef4444;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .log-viewer {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 16px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .log-entry {
+            margin-bottom: 4px;
+            color: #94a3b8;
+        }
+        .log-timestamp {
+            color: #64748b;
+        }
+        .log-success {
+            color: #10b981;
+        }
+        .log-error {
+            color: #ef4444;
+        }
+        .log-warning {
+            color: #f59e0b;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th {
+            text-align: left;
+            padding: 12px;
+            background: #0f172a;
+            font-size: 13px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        .table td {
+            padding: 12px;
+            border-top: 1px solid #334155;
+            font-size: 14px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            transition: width 0.3s;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #334155;
+        }
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .tab:hover {
+            color: #f1f5f9;
+        }
+        .tab.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .auto-refresh {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+        .spinner {
+            border: 3px solid #334155;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content {
+            background-color: #1e293b;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            color: #94a3b8;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SWOPLABS Lead Generation System</h1>
+            <div id="systemStatus" class="status-badge status-green">Loading...</div>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="grid" id="metricsGrid">
+            <div class="card">
+                <h2>📧 Emails Sent Today</h2>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading data...
+                </div>
+            </div>
+            <div class="card">
+                <h2>👥 New Leads Today</h2>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading data...
+                </div>
+            </div>
+            <div class="card">
+                <h2>📊 Campaign Performance</h2>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading data...
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Meetings Booked</h2>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading data...
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Status -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2>🤖 Agent Status</h2>
+            <div id="agentStatus">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading agent status...
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2>⚡ Quick Actions</h2>
+            <div style="margin-top: 16px;">
+                <button class="btn" onclick="showPendingApprovals()">
+                    📋 View Pending Approvals (<span id="pendingCount">0</span>)
+                </button>
+                <button class="btn" onclick="downloadReport('weekly')">
+                    📊 Download Weekly Insights
+                </button>
+                <button class="btn btn-secondary" onclick="downloadReport('daily')">
+                    📈 Download Daily Report
+                </button>
+                <button class="btn btn-secondary" onclick="downloadReport('abtest')">
+                    🧪 Download A/B Test Results
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('overview', this)">Overview</div>
+            <div class="tab" onclick="switchTab('abtest', this)">A/B Testing</div>
+            <div class="tab" onclick="switchTab('logs', this)">Execution Logs</div>
+            <div class="tab" onclick="switchTab('alerts', this)">Alerts</div>
+        </div>
+
+        <!-- Tab: Overview -->
+        <div id="overview" class="tab-content active">
+            <div class="card">
+                <h2>📈 Campaign Overview</h2>
+                <div id="overviewTable">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading overview...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: A/B Testing -->
+        <div id="abtest" class="tab-content">
+            <div class="card">
+                <h2>🧪 Template Performance (A/B Testing)</h2>
+                <div id="abtestTable">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading A/B test results...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Logs -->
+        <div id="logs" class="tab-content">
+            <div class="card">
+                <h2>📜 Execution Logs</h2>
+                <div style="margin-bottom: 16px;">
+                    <label style="margin-right: 10px; color: #94a3b8;">Select Agent:</label>
+                    <select id="agentSelect" onchange="loadLogs()" style="padding: 8px; background: #0f172a; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px;">
+                        <option value="1">Agent 1 - Lead Scout</option>
+                        <option value="2">Agent 2 - Email Writer</option>
+                        <option value="3">Agent 3 - Campaign Manager</option>
+                        <option value="4">Agent 4 - Analytics Tracker</option>
+                        <option value="5">Agent 5 - Insights Generator</option>
+                        <option value="6">Agent 6 - Oversight Monitor</option>
+                    </select>
+                </div>
+                <div class="log-viewer" id="logViewer">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading logs...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Alerts -->
+        <div id="alerts" class="tab-content">
+            <div class="card">
+                <h2>🔔 System Alerts</h2>
+                <div id="alertsContainer">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading alerts...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auto-refresh">
+            🔄 Dashboard auto-refreshes every 30 seconds &bull; Last updated: <span id="lastUpdate"></span>
+        </div>
+    </div>
+
+    <!-- Modal for Pending Approvals -->
+    <div id="approvalsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="margin-bottom: 20px;">Pending Email Approvals</h2>
+            <div id="approvalsContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let metricsData = {};
+        let agentsData = {};
+
+        // Load all data on page load
+        window.onload = function() {
+            loadMetrics();
+            loadAgents();
+            loadOverview();
+            loadABTest();
+            loadLogs();
+            loadAlerts();
+            loadPendingCount();
+
+            // Auto-refresh every 30 seconds
+            setInterval(refreshAll, 30000);
+        };
+
+        function refreshAll() {
+            loadMetrics();
+            loadAgents();
+            loadOverview();
+            loadABTest();
+            loadPendingCount();
+            updateTime();
+        }
+
+        async function loadMetrics() {
+            try {
+                const response = await fetch('/api/metrics');
+                metricsData = await response.json();
+
+                document.getElementById('metricsGrid').innerHTML = `
+                    <div class="card">
+                        <h2>📧 Emails Sent Today</h2>
+                        <div class="metric">
+                            <div class="metric-label">Total Sent</div>
+                            <div class="metric-value">${metricsData.emails_sent_today}</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${(metricsData.emails_sent_today / metricsData.daily_quota * 100)}%;"></div>
+                        </div>
+                        <div class="metric-label" style="margin-top: 8px;">Daily Quota: ${metricsData.emails_sent_today}/${metricsData.daily_quota}</div>
+                    </div>
+                    <div class="card">
+                        <h2>👥 New Leads Today</h2>
+                        <div class="metric">
+                            <div class="metric-label">Leads Found</div>
+                            <div class="metric-value">${metricsData.leads_today}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>📊 Campaign Performance</h2>
+                        <div class="metric">
+                            <div class="metric-label">Open Rate</div>
+                            <div class="metric-value">${metricsData.open_rate}%</div>
+                        </div>
+                        <div class="metric" style="margin-top: 16px;">
+                            <div class="metric-label">Reply Rate</div>
+                            <div class="metric-value">${metricsData.reply_rate}%</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>🎯 Meetings Booked</h2>
+                        <div class="metric">
+                            <div class="metric-label">This Week</div>
+                            <div class="metric-value">${metricsData.meetings_booked_week}</div>
+                        </div>
+                        <div class="metric-label" style="margin-top: 12px;">
+                            Total Replies: ${metricsData.total_replies}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error loading metrics:', error);
+            }
+        }
+
+        async function loadAgents() {
+            try {
+                const response = await fetch('/api/agents');
+                const data = await response.json();
+                agentsData = data;
+
+                // Update system status
+                const statusBadge = document.getElementById('systemStatus');
+                if (data.overall_status === 'green') {
+                    statusBadge.className = 'status-badge status-green';
+                    statusBadge.textContent = '🟢 ALL SYSTEMS OPERATIONAL';
+                } else if (data.overall_status === 'yellow') {
+                    statusBadge.className = 'status-badge status-yellow';
+                    statusBadge.textContent = '🟡 MINOR ISSUES DETECTED';
+                } else {
+                    statusBadge.className = 'status-badge status-red';
+                    statusBadge.textContent = '🔴 CRITICAL ISSUES';
+                }
+
+                // Update agent status
+                let agentHTML = '';
+                data.agents.forEach(agent => {
+                    agentHTML += `
+                        <div class="agent-status">
+                            <div>
+                                <div class="agent-name">Agent ${agent.number}: ${agent.name}</div>
+                                <div style="font-size: 12px; color: #64748b;">
+                                    Last run: ${agent.last_run} &bull; ${agent.description}
+                                </div>
+                            </div>
+                            <div class="agent-indicator indicator-${agent.indicator}"></div>
+                        </div>
+                    `;
+                });
+
+                document.getElementById('agentStatus').innerHTML = agentHTML;
+            } catch (error) {
+                console.error('Error loading agents:', error);
+            }
+        }
+
+        async function loadOverview() {
+            try {
+                const response = await fetch('/api/metrics');
+                const data = await response.json();
+
+                document.getElementById('overviewTable').innerHTML = `
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Today</th>
+                                <th>All Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Emails Sent</td>
+                                <td>${data.emails_sent_today}</td>
+                                <td>${data.total_sent}</td>
+                            </tr>
+                            <tr>
+                                <td>Emails Opened</td>
+                                <td>-</td>
+                                <td>${data.total_opened}</td>
+                            </tr>
+                            <tr>
+                                <td>Replies Received</td>
+                                <td>-</td>
+                                <td>${data.total_replies}</td>
+                            </tr>
+                            <tr>
+                                <td>Positive Replies</td>
+                                <td>-</td>
+                                <td>${data.positive_replies}</td>
+                            </tr>
+                            <tr>
+                                <td>Meetings Booked</td>
+                                <td>-</td>
+                                <td>${data.meetings_booked_week}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+            } catch (error) {
+                console.error('Error loading overview:', error);
+            }
+        }
+
+        async function loadABTest() {
+            try {
+                const response = await fetch('/api/abtest');
+                const data = await response.json();
+
+                let tableHTML = `
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Template</th>
+                                <th>Sent</th>
+                                <th>Open Rate</th>
+                                <th>Reply Rate</th>
+                                <th>Confidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                data.forEach(template => {
+                    let performanceColor = '#94a3b8';
+                    if (template.reply_rate >= 10) performanceColor = '#10b981';
+                    else if (template.reply_rate >= 5) performanceColor = '#f59e0b';
+
+                    tableHTML += `
+                        <tr>
+                            <td><strong>Template ${template.template}</strong> (${template.name})</td>
+                            <td>${template.sent}</td>
+                            <td>${template.open_rate}%</td>
+                            <td style="color: ${performanceColor};">${template.reply_rate}%</td>
+                            <td>${template.confidence}</td>
+                        </tr>
+                    `;
+                });
+
+                tableHTML += `
+                        </tbody>
+                    </table>
+                    <div style="margin-top: 16px; padding: 12px; background: #0f172a; border-radius: 8px; font-size: 13px; color: #94a3b8;">
+                        ⚠️ Sample sizes may be too small for statistical significance (need n≥100). Continue testing.
+                    </div>
+                `;
+
+                document.getElementById('abtestTable').innerHTML = tableHTML;
+            } catch (error) {
+                console.error('Error loading A/B test:', error);
+            }
+        }
+
+        async function loadLogs() {
+            const agentNumber = document.getElementById('agentSelect').value;
+
+            try {
+                const response = await fetch(`/api/logs/${agentNumber}`);
+                const data = await response.json();
+
+                let logsHTML = '';
+                data.logs.forEach(line => {
+                    let className = 'log-entry';
+                    if (line.includes('✓') || line.includes('SUCCESS')) className += ' log-success';
+                    else if (line.includes('❌') || line.includes('ERROR')) className += ' log-error';
+                    else if (line.includes('⚠️') || line.includes('WARNING')) className += ' log-warning';
+
+                    logsHTML += `<div class="${className}">${escapeHtml(line)}</div>`;
+                });
+
+                document.getElementById('logViewer').innerHTML = logsHTML || '<div class="log-entry">No logs available</div>';
+            } catch (error) {
+                console.error('Error loading logs:', error);
+                document.getElementById('logViewer').innerHTML = '<div class="log-entry log-error">Error loading logs</div>';
+            }
+        }
+
+        async function loadAlerts() {
+            try {
+                const response = await fetch('/api/alerts');
+                const data = await response.json();
+
+                if (data.length === 0) {
+                    document.getElementById('alertsContainer').innerHTML = `
+                        <div style="padding: 40px; text-align: center; color: #64748b;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
+                            <div style="font-size: 18px; font-weight: 600; color: #10b981; margin-bottom: 8px;">
+                                No Active Alerts
+                            </div>
+                            <div style="font-size: 14px;">
+                                All systems are operating normally
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    let alertsHTML = '';
+                    data.forEach(alert => {
+                        alertsHTML += `
+                            <div class="alert">
+                                <div class="alert-title">${alert.severity} - ${alert.time}</div>
+                                <pre style="white-space: pre-wrap; font-size: 12px; color: #e2e8f0;">${escapeHtml(alert.content)}</pre>
+                            </div>
+                        `;
+                    });
+                    document.getElementById('alertsContainer').innerHTML = alertsHTML;
+                }
+            } catch (error) {
+                console.error('Error loading alerts:', error);
+            }
+        }
+
+        async function loadPendingCount() {
+            try {
+                const response = await fetch('/api/pending-approvals');
+                const data = await response.json();
+                document.getElementById('pendingCount').textContent = data.length;
+            } catch (error) {
+                console.error('Error loading pending count:', error);
+            }
+        }
+
+        async function showPendingApprovals() {
+            try {
+                const response = await fetch('/api/pending-approvals');
+                const data = await response.json();
+
+                if (data.length === 0) {
+                    document.getElementById('approvalsContent').innerHTML = `
+                        <div style="padding: 40px; text-align: center; color: #64748b;">
+                            <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
+                            <div style="font-size: 18px; font-weight: 600;">
+                                No Pending Approvals
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    let html = '<table class="table"><thead><tr><th>Lead</th><th>Score</th><th>Template</th><th>Subject</th></tr></thead><tbody>';
+
+                    data.forEach(item => {
+                        html += `
+                            <tr>
+                                <td>${item.lead_name}</td>
+                                <td>${item.lead_score}</td>
+                                <td>${item.template}</td>
+                                <td>${item.subject}</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += '</tbody></table>';
+                    document.getElementById('approvalsContent').innerHTML = html;
+                }
+
+                document.getElementById('approvalsModal').style.display = 'block';
+            } catch (error) {
+                console.error('Error loading pending approvals:', error);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('approvalsModal').style.display = 'none';
+        }
+
+        function downloadReport(type) {
+            window.location.href = `/download/report/${type}`;
+        }
+
+        function switchTab(tabName, el) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            // Show selected
+            document.getElementById(tabName).classList.add('active');
+            el.classList.add('active');
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-SG', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('lastUpdate').textContent = timeString;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Update time immediately and every second
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('approvalsModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

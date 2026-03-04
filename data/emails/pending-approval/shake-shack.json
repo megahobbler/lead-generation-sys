@@ -1,0 +1,19 @@
+{
+  "lead_name": "Shake Shack",
+  "business_type": "Restaurant",
+  "lead_score": 95,
+  "template_used": "D",
+  "subject_line": "Shake Shack - try it free, zero obligation",
+  "email_body": "Hi there,\n\nNo pitch, no pressure - just an offer:\n\n2-week free trial of an AI phone system that:\n- Answers 100% of your calls (even during dinner rush)\n- Sounds like a real human (not robotic)\n- Handles English, Mandarin, Malay\n- Takes zero setup time\n\nIf you hate it, we part as friends. If it works, we can talk.\n\nCurrently testing with restaurants across Singapore & Jakarta across your 4 locations.\n\nWorth trying?\nhttps://calendly.com/sean-tan-swoplabs/30min\n\nBest,\nSean Tan\nSWOPLABS.AI\nlinkedin.com/in/sean-tan-961903247\n+65 83289068\nsean.tan@swoplabs.app\n\nP.S. - Built by SMU & Columbia grads who understand the lunch-dinner double-rush grind.\n\nReply 'unsubscribe' to opt out.",
+  "email_address": "info@shakeshack.com",
+  "personalization_elements": [
+    "Business name: Shake Shack",
+    "Neighborhood: Marina Bay",
+    "Chain: Yes (4 locations)"
+  ],
+  "approval_required": true,
+  "created_date": "2026-03-04",
+  "send_status": "pending_approval",
+  "assigned_to_agent_3": false,
+  "word_count": 103
+}

@@ -1,0 +1,19 @@
+{
+  "lead_name": "The Kitchen @ Bacchanalia",
+  "business_type": "Restaurant",
+  "lead_score": 45,
+  "template_used": "B",
+  "subject_line": "The Kitchen @ Bacchanalia - see how we helped similar restaurants",
+  "email_body": "Hi there,\n\nWe're currently piloting an AI phone system with restaurant groups across Singapore and Jakarta.\n\nThe results: restaurants capturing 43% more bookings (calls they used to miss during dinner rush).\n\nWhat makes it different:\n- Sounds like a real human (not robotic AI)\n- Handles English, Mandarin, Malay, Bahasa\n- Built by SMU & Columbia grads who get Singapore F&B\n\nCurrently helping Restaurant businesses in Clarke Quay - thought you'd be a great fit.\n\n15-min demo or 2-week free trial?\nhttps://calendly.com/sean-tan-swoplabs/30min\n\nBest,\nSean Tan\nSWOPLABS.AI\nlinkedin.com/in/sean-tan-961903247\n+65 83289068\nsean.tan@swoplabs.app\n\nP.S. - 99.9% uptime. Because a missed call costs you money.\n\nReply 'unsubscribe' to opt out.",
+  "email_address": "contact@bacchanalia.sg",
+  "personalization_elements": [
+    "Business name: The Kitchen @ Bacchanalia",
+    "Neighborhood: Clarke Quay",
+    "Chain: Single location"
+  ],
+  "approval_required": false,
+  "created_date": "2026-03-04",
+  "send_status": "ready_to_send",
+  "assigned_to_agent_3": false,
+  "word_count": 106
+}

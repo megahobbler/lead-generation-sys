@@ -1,0 +1,49 @@
+
+========================================
+AGENT 1: Lead Scout - 13:22:27
+========================================
+New leads: 24
+High-priority (score≥75): 18
+Chains: 18
+Ready for Agent 2: 24
+
+========================================
+AGENT 2: Email Writer - 13:22:28
+========================================
+Emails created: 24
+Auto-send ready: 6
+Pending Sean approval: 18
+Templates: A=6 B=6 C=6 D=6
+
+========================================
+AGENT 3: Campaign Manager - 13:22:29
+========================================
+Sent: 5
+Bounced: 1 (16.7%)
+Positive replies: 0
+Meetings booked: 0
+
+========================================
+AGENT 4: Analytics Tracker - 13:22:30
+========================================
+Records analyzed: 6
+Overall open rate: 20.0%
+Overall reply rate: 0.0%
+Meetings booked: 0
+Best template (by reply rate): A
+
+========================================
+AGENT 5: Insights Generator - 13:22:31
+========================================
+Records analyzed: 6
+This week sent: 6
+Leading template: A (0.0% reply)
+Meetings booked this week: 0
+
+========================================
+AGENT 6: Oversight Monitor - 13:22:32
+========================================
+Overall: 🔴 CRITICAL ISSUES DETECTED
+Incidents: 1
+Pending approvals: 18
+Positive replies: 0

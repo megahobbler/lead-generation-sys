@@ -1,0 +1,2 @@
+# Businesses to never contact
+# Add one per line, case-insensitive
